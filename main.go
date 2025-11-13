@@ -30,9 +30,9 @@ func main() {
 	mux.Handle("/app/", fsHandler)
 	mux.HandleFunc("GET /api/healthz", handleReadiness)
 	// register the handler that logs the server hits on /metrics
-	mux.HandleFunc("GET /api/metrics", apiCfg.handlerMetrics)
+	mux.HandleFunc("GET /admin/metrics", apiCfg.handlerMetrics)
 	// register the handler that resets the counter to 0 on /reset
-	mux.HandleFunc("POST /api/reset", apiCfg.handlerReset)
+	mux.HandleFunc("POST /admin/reset", apiCfg.handlerReset)
 
 	// Create the server with configuration
 	server := &http.Server {
