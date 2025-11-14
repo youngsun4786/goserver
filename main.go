@@ -29,6 +29,7 @@ func main() {
 		)
 	mux.Handle("/app/", fsHandler)
 	mux.HandleFunc("GET /api/healthz", handleReadiness)
+	mux.HandleFunc("POST /api/validate_chirp", handlerValidate)
 	// register the handler that logs the server hits on /metrics
 	mux.HandleFunc("GET /admin/metrics", apiCfg.handlerMetrics)
 	// register the handler that resets the counter to 0 on /reset
